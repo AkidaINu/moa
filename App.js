@@ -8,42 +8,42 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import {createBottomTabNavigator,createStackNavigator} from 'react-navigation';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+import MessageScreen from './src/pages/Messge';
+import TaskScreen from './src/pages/Task';
+import WorkScreen from './src/pages/Work';
+import RosterScreen from './src/pages/Roster';
+import MineScreen from './src/pages/Mine';
+
+//二级页面
+import ChatScreen from './src/pages/Chat'
+
+
+const TabNavigator = createBottomTabNavigator({
+    Message:{screen: MessageScreen,navigationOptions: {tabBarLabel:'消息'}},
+    Task:{screen: TaskScreen,navigationOptions: {tabBarLabel:'任务'}},
+    Work:{screen: WorkScreen,navigationOptions: {tabBarLabel:'工作'}},
+    Roster:{screen: RosterScreen,navigationOptions: {tabBarLabel:'通讯录'}},
+    Mine: {screen: MineScreen,navigationOptions: {tabBarLabel:'我的'}},
+},{
+    navigationOptions: {
+
+    }
 });
+
+const RootStack = createStackNavigator({
+   Home: TabNavigator,
+    Chat: ChatScreen,
+});
+
+
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      <RootStack />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
