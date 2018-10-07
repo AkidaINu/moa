@@ -3,8 +3,10 @@ import {StyleSheet, Text, View} from 'react-native';
 
 type Props = {};
 export default class Chat extends Component<Props> {
-    static navigationOptions = {
-
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: navigation.getParam('userNameChatWith', 'null'),
+        };
     };
     render() {
         return (

@@ -1,42 +1,13 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import {createBottomTabNavigator,createStackNavigator} from 'react-navigation';
 
-import MessageScreen from './src/pages/Messge';
-import TaskScreen from './src/pages/Task';
-import WorkScreen from './src/pages/Work';
-import RosterScreen from './src/pages/Roster';
-import MineScreen from './src/pages/Mine';
+import RootStack from './src/RootStack'
 
-//二级页面
-import ChatScreen from './src/pages/Chat'
-
-
-const TabNavigator = createBottomTabNavigator({
-    Message:{screen: MessageScreen,navigationOptions: {tabBarLabel:'消息'}},
-    Task:{screen: TaskScreen,navigationOptions: {tabBarLabel:'任务'}},
-    Work:{screen: WorkScreen,navigationOptions: {tabBarLabel:'工作'}},
-    Roster:{screen: RosterScreen,navigationOptions: {tabBarLabel:'通讯录'}},
-    Mine: {screen: MineScreen,navigationOptions: {tabBarLabel:'我的'}},
-},{
-    navigationOptions: {
-
-    }
-});
-
-const RootStack = createStackNavigator({
-   Home: TabNavigator,
-    Chat: ChatScreen,
-});
-
+//主页各组件的堆栈
+// const MessgeStack = createStackNavigator({screen:MessageScreen},{navigationOptions:{title:'消息'}});
+// const TaskStack = createStackNavigator({screen:TaskScreen},{navigationOptions:{title:'任务'}});
+// const WorkStack = createStackNavigator({screen:WorkScreen},{navigationOptions:{title:'工作'}});
+// const RosterStack = createStackNavigator({screen:RosterScreen},{navigationOptions:{title:'通讯录'}});
+// const MineStack = createStackNavigator({screen:MineScreen},{navigationOptions:{title:'我的'}});
 
 
 type Props = {};
