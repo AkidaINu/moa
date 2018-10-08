@@ -40,6 +40,7 @@
  - [ ] 全屏海报
  - [ ] 消息广告洞
  - [ ] 司历
+ - [ ] itemFlashSelect 
  
  ##技术学习
  ### 1.react-navigation
