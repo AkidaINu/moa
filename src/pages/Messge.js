@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ScrollView,StyleSheet,FlatList, Text,View,Image,TouchableNativeFeedback,Platform,Alert} from 'react-native';
+import {ScrollView,StyleSheet,FlatList, Text,View,Image,TouchableNativeFeedback,Platform,Alert,Button} from 'react-native';
 
 type Props = {};
 //测试数据
@@ -13,6 +13,11 @@ var TestData = [
     {sessionId:"department",itemName: '部门',avatar:'',lastMsg:'你好',itemType:'chat',data:null,time:''},
     {sessionId:"division",itemName: '科室',avatar:'',lastMsg:'你好',itemType:'chat',data:null,time:''},
     {sessionId:"group111",itemName: '自定义群组',avatar:'',lastMsg:'你好',itemType:'chat',data:null,time:''},
+    {sessionId:"cloud",itemName: '云盘',avatar:'',lastMsg:'打开云盘',itemType:'local',data:null,time:''},
+    {sessionId:"meeting",itemName: '会议提醒',avatar:'',lastMsg:'老大邀请您参加10:30的会议',itemType:'flashSelect',data:null,time:''},
+    {sessionId:"department",itemName: '部门',avatar:'',lastMsg:'你好',itemType:'chat',data:null,time:''},
+    {sessionId:"division",itemName: '科室',avatar:'',lastMsg:'你好',itemType:'chat',data:null,time:''},
+    {sessionId:"group111",itemName: '自定义群组',avatar:'',lastMsg:'你好',itemType:'chat',data:null,time:''},
 ];
 
 export default class Messge extends Component<Props> {
@@ -20,6 +25,19 @@ export default class Messge extends Component<Props> {
         return (
             <View style={styles.container}>
                 <ScrollView contentContainerStyle={styles.contentContainer}>
+                    <TouchableNativeFeedback>
+                        <View style={{marginVertical: 6,marginHorizontal: 12,}}>
+                            <View style={{
+                                backgroundColor:'#edeef5',
+                                borderWidth:1,
+                                borderRadius:4,
+                                borderColor:'#e6e7ee',
+                                height:40,
+                                justifyContent:'center'}}>
+                                <Text style={{color:'#a1a1a1',marginStart: 60}}>搜索</Text>
+                            </View>
+                        </View>
+                    </TouchableNativeFeedback>
                     <FlatList
                         data={TestData}
                         renderItem={this._renderItem}
@@ -27,7 +45,6 @@ export default class Messge extends Component<Props> {
                     />
                 </ScrollView>
             </View>
-
         );
     }
 
@@ -66,7 +83,7 @@ export default class Messge extends Component<Props> {
                             <Text style={styles.itemTimeText}>下午8:35</Text>
                         </View>
                     </View>
-                    <View style={{flex: 1, height: 1, backgroundColor: '#d5d5d5', marginStart: 80}}/>
+                    <View style={styles.itemDivider}/>
                 </View>
             </TouchableNativeFeedback>
         )
@@ -128,6 +145,12 @@ const styles = StyleSheet.create({
     itemTimeText:{
         fontSize:10,
         color:'#7e7e7e'
+    },
+    itemDivider:{
+        flex: 1,
+        height: 1,
+        backgroundColor: '#e3e3e3',
+        marginStart: 80
     },
 
 });
