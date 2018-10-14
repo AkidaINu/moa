@@ -1,5 +1,14 @@
 import React, {Component} from 'react';
-import {ScrollView,StyleSheet,FlatList, Text,View,Image,TouchableNativeFeedback,Platform,Alert,Button} from 'react-native';
+import {
+    ScrollView,
+    StyleSheet,
+    FlatList,
+    Text,
+    View,
+    Image,
+    TouchableNativeFeedback,
+    TouchableHighlight
+} from 'react-native';
 
 type Props = {};
 //测试数据
@@ -25,8 +34,8 @@ export default class Messge extends Component<Props> {
         return (
             <View style={styles.container}>
                 <ScrollView contentContainerStyle={styles.contentContainer}>
-                    <TouchableNativeFeedback>
-                        <View style={{marginVertical: 6,marginHorizontal: 12,}}>
+                    <TouchableHighlight>
+                        <View style={{marginVertical: 6,marginHorizontal: 12,backgroundColor:'#fff'}}>
                             <View style={{
                                 backgroundColor:'#edeef5',
                                 borderWidth:1,
@@ -37,7 +46,7 @@ export default class Messge extends Component<Props> {
                                 <Text style={{color:'#a1a1a1',marginStart: 60}}>搜索</Text>
                             </View>
                         </View>
-                    </TouchableNativeFeedback>
+                    </TouchableHighlight>
                     <FlatList
                         data={TestData}
                         renderItem={this._renderItem}
